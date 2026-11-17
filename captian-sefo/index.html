@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Captian-Sefo</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Captain-Sefo</div>
+        
+        <nav>
+            <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+            <a href="Programs.html" data-ar="البرامج" data-en="Programs">البرامج</a>
+            <a href="Coach.html" data-ar="المدرب" data-en="Coach">المدرب</a>
+            <a href="contact.php" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a>
+        </nav>
+        <button class="language-toggle" type="button" aria-label="Switch language">English</button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1><span data-ar="ابنِ " data-en="Build your ">ابنِ </span><span class="highlight" data-ar="جسدك الحديدي" data-en="iron body">جسدك الحديدي</span><span data-ar=" اليوم" data-en=" today"> اليوم</span></h1>
+            <p data-ar="برامج تدريب وتغذية مخصصة للضخامة العضلية والتنشيف مع متابعة شخصية مستمرة." data-en="Personalized training and nutrition programs for muscle building and fat loss, with ongoing one-on-one support.">برامج تدريب وتغذية مخصصة للضخامة العضلية والتنشيف مع متابعة شخصية مستمرة.</p>
+            <a href="#" class="btn-primary" data-ar="ابدأ رحلتك الآن" data-en="Start your journey">ابدأ رحلتك الآن</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <h3 data-ar="تغذية مخصصة" data-en="Personalized Nutrition">تغذية مخصصة</h3>
+            <p data-ar="خطط غذائية حسب طبيعة جسمك وهدفك لزيادة الكتلة العضلية أو التنشيف." data-en="Nutrition plans tailored to your body and goals, whether building muscle or losing fat.">خطط غذائية حسب طبيعة جسمك وهدفك لزيادة الكتلة العضلية أو التنشيف.</p>
+        </div>
+        <div class="card">
+            <h3 data-ar="برامج تدريبية" data-en="Training Programs">برامج تدريبية</h3>
+            <p data-ar="تمارين مصممة لاستهداف الزوايا العضلية بدقة وفق أحدث الأساليب العلمية." data-en="Workouts designed to target muscles precisely, using the latest evidence-based methods.">تمارين مصممة لاستهداف الزوايا العضلية بدقة وفق أحدث الأساليب العلمية.</p>
+        </div>
+        <div class="card">
+            <h3 data-ar="متابعة مستمرة" data-en="Ongoing Support">متابعة مستمرة</h3>
+            <p data-ar="متابعة أسبوعية للنتائج وتعديل الخطة بحسب تطور مستوى جسمك." data-en="Weekly progress check-ins and plan adjustments as your fitness develops.">متابعة أسبوعية للنتائج وتعديل الخطة بحسب تطور مستوى جسمك.</p>
+        </div>
+    </section>
+    <script>
+        const languageToggle = document.querySelector('.language-toggle');
+
+        languageToggle.addEventListener('click', () => {
+            const language = document.documentElement.lang === 'ar' ? 'en' : 'ar';
+            document.documentElement.lang = language;
+            document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+            document.title = language === 'ar' ? 'IRON BEAST - بناء الأجسام' : 'IRON BEAST - Bodybuilding';
+
+            document.querySelectorAll('[data-ar][data-en]').forEach((element) => {
+                element.textContent = element.dataset[language];
+            });
+
+            languageToggle.textContent = language === 'ar' ? 'English' : 'العربية';
+            languageToggle.setAttribute('aria-label', language === 'ar' ? 'Switch language to English' : 'تغيير اللغة إلى العربية');
+        });
+    </script>
+</body>
+</html>
